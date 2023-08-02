@@ -1,5 +1,3 @@
-from score_enums import TennisScores
-
 class Player:
     def __init__(self, name):
         self.name = name
