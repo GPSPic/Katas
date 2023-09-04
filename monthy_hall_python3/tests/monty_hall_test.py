@@ -26,4 +26,9 @@ class MonthyHallTest(unittest.TestCase):
         self.assertEqual(True, result)
         self.assertEqual(True, isinstance(self.monty_hall_game.player_first_choice_index, int))
 
-    # test 
+    # test3: presenter picks a door
+    def test_presenter_can_choose_a_door(self):
+        self.monty_hall_game.hide_prize()
+        self.monty_hall_game.choose_first_door()
+        self.monty_hall_game.show_empty_door()
+        self.assertEqual(1, sum(self.monty_hall_game.final_doors))
