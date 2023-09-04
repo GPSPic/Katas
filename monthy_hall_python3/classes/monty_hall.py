@@ -29,16 +29,16 @@ class MontyHallGame:
             self.final_doors = [0,1]
 
 # player chooses final door. 
-    def final_choice(self, bool):
-        if bool:
+    def final_choice(self, switch_choice):
+        if switch_choice:
             self.player_final_choice_value = self.final_doors[1]
         else:
             self.player_final_choice_value = self.final_doors[0]
 
 # runs game
-    def run_game(self, bool):
+    def run_game(self, switch_choice):
         self.hide_prize()
         self.choose_first_door()
         self.show_empty_door()
-        self.final_choice(bool)
+        self.final_choice(switch_choice)
 
