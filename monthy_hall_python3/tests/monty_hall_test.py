@@ -24,6 +24,6 @@ class MonthyHallTest(unittest.TestCase):
         self.monty_hall_game.choose_first_door()
         result = type(self.monty_hall_game.player_first_choice_value) is int
         self.assertEqual(True, result)
-        self.assertEqual(True, type(self.monty_hall_game.player_first_choice_index) is int)
+        self.assertEqual(True, isinstance(self.monty_hall_game.player_first_choice_index, int))
 
     # test 
