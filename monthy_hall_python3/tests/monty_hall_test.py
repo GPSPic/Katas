@@ -32,3 +32,7 @@ class MonthyHallTest(unittest.TestCase):
         self.monty_hall_game.choose_first_door()
         self.monty_hall_game.show_empty_door()
         self.assertEqual(1, sum(self.monty_hall_game.final_doors))
+        
+    # def test_final_results(self):
+    #     self.monty_hall_game.run_game(True)
+    #     print(self.monty_hall_game.player_final_choice_value)
