@@ -7,7 +7,7 @@ class MontyHallGame:
         self.doors = [0,0,0]
         self.player_first_choice_value = None
         self.player_first_choice_index = None
-        self.player_final_choice_index = None
+        self.player_final_choice_value = None
         self.final_doors = [0,0]
 
 # randomly assigns the prize value to one of the elements of the doors array
@@ -21,11 +21,9 @@ class MontyHallGame:
         self.player_first_choice_value = self.doors[randomized]
         self.player_first_choice_index = randomized
 
-#
+#we hardcoded the player choice index in the final doors array. 
     def show_empty_door(self):
-        print(self.doors)
-        for door in self.doors:
-            if door == 1 and self.doors.index(door) != self.player_first_choice_index:
-                self.final_doors[1] = 1 
-            else: 
-                self.final_doors[0] = 1
+        if self.player_first_choice_value == 1:
+            self.final_doors = [1,0]
+        else:
+            self.final_doors = [0,1]
