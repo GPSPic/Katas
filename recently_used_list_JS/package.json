@@ -1,0 +1,14 @@
+{
+  "name": "recently_used_list_js",
+  "version": "1.0.0",
+  "description": "",
+  "main": "recently_used.js",
+  "scripts": {
+    "test": "mocha specs"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "mocha": "^10.2.0"
+  }
+}
