@@ -1,0 +1,15 @@
+{
+  "name": "lift_button_js",
+  "version": "1.0.0",
+  "description": "",
+  "main": "elevator.js",
+  "scripts": {
+    "test": "mocha specs"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "mocha": "^10.2.0"
+  },
+  "type" : "module"  
+}
