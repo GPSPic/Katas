@@ -18,7 +18,7 @@ class Elevator {
     }
     
     pressLiftButton() {
-        if (this.doorsOpen === false) {
+        if (!this.doorsOpen) {
             this.lightOn = true
         }
     
