@@ -1,5 +1,5 @@
-const assert = require('assert');
-const minuteConverter = require('../models/randomiser.js');
+import assert from 'assert';
+import { minuteConverter, totalLengthOfTime } from '../models/randomiser.js';
 
 describe('', function() {
     let initialData = {}
@@ -9,7 +9,7 @@ describe('', function() {
             startTime: "08:00",
             endTime: "20:00",
             ringNum: 12,
-            minInterval: "30:00",
+            minInterval: "00:30",
             daysSelected: {
                 monday: true,
                 tuesday: false,
@@ -23,7 +23,18 @@ describe('', function() {
     })
 
     it('should convert the string for times into a number of minutes', function() {
-        const actual = minuteConverter(initialData.startTime)
-        assert.deepStrictEqual(actual, 480)
+        const actual1 = minuteConverter(initialData.startTime)
+        const actual2 = minuteConverter(initialData.endTime)
+        const actual3 = minuteConverter(initialData.minInterval)
+        assert.deepStrictEqual(actual1, 480)
+        assert.deepStrictEqual(actual2, 1200)
+        assert.deepStrictEqual(actual3, 30)
     })
+
+    it('should calculate the total length of time', function () {
+        const actual = totalLengthOfTime(initialData.startTime, initialData.endTime)
+        assert.deepStrictEqual(actual, 720)
+    })
+
+
 })
