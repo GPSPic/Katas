@@ -1,4 +1,4 @@
-const randomiser = function (data) {
+const getRandomTimesForValidDays = function (data) {
   const dailyTimes = {
     monday: [],
     tuesday: [],
@@ -18,7 +18,30 @@ export const minuteConverter = function (str) {
 };
 
 export const totalLengthOfTime = function (start, end) {
-  if (minuteConverter(end) > minuteConverter(start)) {
-    return minuteConverter(end) - minuteConverter(start);
+  if (end > start) {
+    return end - start;
   }
 };
+
+
+export const getIntervalsEdges = function (startTime, endTime, ringNum) {
+  const start = minuteConverter(startTime);
+  const end = minuteConverter(endTime);
+  const totalTime = totalLengthOfTime(start, end);
+
+  if (ringNum > 0) {
+    const intervalLength = Math.floor(totalTime / ringNum);
+    const remainingMinutes = totalTime % ringNum;
+
+    const intervals = [start];
+    let newValue = start
+    for (let i = 0; i < ringNum; i++) {
+      newValue = newValue + intervalLength + (i < remainingMinutes ? 1 : 0)
+      intervals.push(newValue);
+    }
+
+  return intervals;
+  }
+};
+
+const getRandomValue = function (i, j) {};
