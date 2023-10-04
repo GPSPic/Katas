@@ -1,8 +1,8 @@
 {
-  "name": "lift_button_js",
+  "name": "randomiser_js",
   "version": "1.0.0",
   "description": "",
-  "main": "elevator.js",
+  "main": "index.js",
   "scripts": {
     "test": "mocha specs"
   },
@@ -10,5 +10,5 @@
   "license": "ISC",
   "devDependencies": {
     "mocha": "^10.2.0"
-  },
+  }
 }

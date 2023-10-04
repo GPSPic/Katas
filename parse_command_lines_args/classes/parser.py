@@ -31,5 +31,5 @@ class Parser:
 
         i = 0
         while i < len(arr):
-
+            
         return result
