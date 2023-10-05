@@ -4,8 +4,8 @@ The purpose of this exercise is to test the ability of a function to return an o
 The initial data is:
 - a start time
 - an end time
-- a number of expected random dateTime objects
-- a minimum interval of time between 2 dateTime objects
+- a number of expected random Time objects
+- a minimum interval of time between 2 Time objects
 - days of the week
 
 The expected return will be an object containing random Time objects for each day of the week, with the difference between 2 dateTimes on the same day being greater than the minimum interval time.
