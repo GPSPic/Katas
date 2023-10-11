@@ -6,6 +6,7 @@ import {
   getRandomArray,
   getIntervalLength,
   getRandomValue,
+  getRandomTimesForValidDays,
 } from "../models/randomiser.js";
 
 describe("", function () {
@@ -96,12 +97,29 @@ describe("", function () {
 
   it("should create an array of random values where i < i+1", function () {
     const arr = getRandomArray(initialData);
+    const arr2 = getRandomArray(slightlyDifficultData);
     const actual = arr.every((el, index) => {
       if (index < arr.length - 1) {
         return el < arr[index + 1];
       }
       return true;
     });
+    const actual2 = arr.every((el, index) => {
+      if (index < arr.length - 1) {
+        return el < arr[index + 1];
+      }
+      return true;
+    });
     assert.deepStrictEqual(actual, true);
+    assert.deepStrictEqual(actual2, true);
+  });
+
+  it("should only add a array of random times to the keys with a true value", function () {
+    const actual = getRandomTimesForValidDays(initialData).monday.length;
+    console.log(getRandomTimesForValidDays(initialData));
+    assert.deepStrictEqual(actual, 12);
+    const actual2 = getRandomTimesForValidDays(slightlyDifficultData).monday.length;
+    console.log(getRandomTimesForValidDays(slightlyDifficultData));
+    assert.deepStrictEqual(actual2, 7);
   });
 });

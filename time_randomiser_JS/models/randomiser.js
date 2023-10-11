@@ -1,20 +1,18 @@
-const getRandomTimesForValidDays = function (data) {
-  const dailyTimes = {
-    monday: [],
-    tuesday: [],
-    wednesday: [],
-    thursday: [],
-    friday: [],
-    saturday: [],
-    sunday: [],
-  };
+export const getRandomTimesForValidDays = function (data) {
+  const dailyTimes = data.daysSelected
+
+  for (const el in data.daysSelected) {
+    if (data.daysSelected[el]) {
+      dailyTimes[el] = getRandomArray(data)
+    }
+  }
 
   return dailyTimes;
 };
 
 export const minuteConverter = function (str) {
   if (typeof str !== 'string') {
-    throw new Error(str + ' Input is not a string'); // Or handle the error in an appropriate way
+    throw new Error(str + ' Input is not a string');
   }
   const timeParts = str.split(":");
   return Number(timeParts[0]) * 60 + Number(timeParts[1]);
@@ -33,7 +31,7 @@ export const getIntervalLength = function (start, end, ringNum) {
 
 export const getIntervalsEdges = function (start, end, ringNum) {
   const totalTime = totalLengthOfTime(start, end)
-  
+
   if (ringNum > 0) {
     const intervalLength = Math.floor(totalTime / ringNum);
     const remainingMinutes = totalTime % ringNum;
@@ -66,10 +64,10 @@ export const getRandomArray = data => {
   const randomArr = []
   let overTime = 0
   for (let i = 0; i < data.ringNum; i++) {
-    const randomTime = getRandomValue(edges[i], edges[i+1] + overTime)
+    const randomTime = getRandomValue(edges[i] + overTime, edges[i+1])
     randomArr.push(randomTime)
-    if (edges[i] + randomTime > edges[i+1]) {
-      overTime = edges[i] + minInterval - edges[i+1]
+    if (edges[i] + minInterval > edges[i+1]) {
+      overTime = randomTime + minInterval - edges[i+1]
     } else {
       overTime = 0
     }
