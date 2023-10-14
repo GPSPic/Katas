@@ -5,7 +5,7 @@ import {
   getIntervalsEdges,
   getRandomArray,
   getIntervalLength,
-  getRandomMinutesValuesForValidDays,
+  getRandomTimesForValidDays,
   convertMinutesValueToDateObject
 } from "../models/randomiser.js";
 
@@ -115,9 +115,9 @@ describe("", function () {
   });
 
   it("should only add a array of random times to the keys with a true value", function () {
-    const actual = getRandomMinutesValuesForValidDays(initialData).monday.length;
+    const actual = getRandomTimesForValidDays(initialData).monday.length;
     assert.deepStrictEqual(actual, 12);
-    const actual2 = getRandomMinutesValuesForValidDays(slightlyDifficultData).monday.length;
+    const actual2 = getRandomTimesForValidDays(slightlyDifficultData).monday.length;
     assert.deepStrictEqual(actual2, 7);
   });
 

@@ -1,11 +1,11 @@
-export const getRandomMinutesValuesForValidDays = function (data) {
+export const getRandomTimesForValidDays = function (data) {
   const dailyTimes = {...data.daysSelected}
   for (const el in dailyTimes) {
     if (dailyTimes[el]) {
       dailyTimes[el] = getRandomArray(data)
     }
   }
-  console.log(dailyTimes.monday);
+
   return dailyTimes;
 };
 export const convertMinutesValueToDateObject = function (num) {
