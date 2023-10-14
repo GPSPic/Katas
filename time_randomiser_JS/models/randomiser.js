@@ -1,12 +1,19 @@
-export const getRandomTimesForValidDays = function (data) {
+export const getRandomMinutesValuesForValidDays = function (data) {
   const dailyTimes = {...data.daysSelected}
   for (const el in dailyTimes) {
     if (dailyTimes[el]) {
       dailyTimes[el] = getRandomArray(data)
     }
   }
+  console.log(dailyTimes.monday);
   return dailyTimes;
 };
+export const convertMinutesValueToDateObject = function (num) {
+  const hours = Math.floor(num / 60)
+  const minutes = num % 60
+  return new Date(1970, 0, 1, hours, minutes)
+ 
+}
 
 export const minuteConverter = function (str) {
   if (typeof str !== 'string') {
@@ -63,7 +70,7 @@ export const getRandomArray = data => {
   let overTime = 0
   for (let i = 0; i < ringNum; i++) {
     const randomTime = getRandomValue(edges[i] + overTime, edges[i+1])
-    randomArr.push(randomTime)
+    randomArr.push(convertMinutesValueToDateObject(randomTime))
     if (randomTime + minInterval > edges[i+1]) {
       overTime = randomTime + minInterval - edges[i+1]
     } else {
