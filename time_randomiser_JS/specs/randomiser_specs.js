@@ -116,10 +116,8 @@ describe("", function () {
 
   it("should only add a array of random times to the keys with a true value", function () {
     const actual = getRandomTimesForValidDays(initialData).monday.length;
-    console.log(getRandomTimesForValidDays(initialData));
     assert.deepStrictEqual(actual, 12);
     const actual2 = getRandomTimesForValidDays(slightlyDifficultData).monday.length;
-    console.log(getRandomTimesForValidDays(slightlyDifficultData));
     assert.deepStrictEqual(actual2, 7);
   });
 });

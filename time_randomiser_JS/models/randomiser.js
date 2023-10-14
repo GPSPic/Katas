@@ -1,12 +1,10 @@
 export const getRandomTimesForValidDays = function (data) {
-  const dailyTimes = data.daysSelected
-
-  for (const el in data.daysSelected) {
-    if (data.daysSelected[el]) {
+  const dailyTimes = {...data.daysSelected}
+  for (const el in dailyTimes) {
+    if (dailyTimes[el]) {
       dailyTimes[el] = getRandomArray(data)
     }
   }
-
   return dailyTimes;
 };
 
@@ -54,7 +52,7 @@ export const getRandomArray = data => {
   const start = minuteConverter(data.startTime)
   const end = minuteConverter(data.endTime)
   const ringNum = data.ringNum
-  let minInterval = minuteConverter(data.minInterval)
+  const minInterval = minuteConverter(data.minInterval)
   
   if (getIntervalLength(start, end, ringNum) < minInterval) {
     return
@@ -63,10 +61,10 @@ export const getRandomArray = data => {
   
   const randomArr = []
   let overTime = 0
-  for (let i = 0; i < data.ringNum; i++) {
+  for (let i = 0; i < ringNum; i++) {
     const randomTime = getRandomValue(edges[i] + overTime, edges[i+1])
     randomArr.push(randomTime)
-    if (edges[i] + minInterval > edges[i+1]) {
+    if (randomTime + minInterval > edges[i+1]) {
       overTime = randomTime + minInterval - edges[i+1]
     } else {
       overTime = 0
